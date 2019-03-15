@@ -193,4 +193,15 @@ public class BetterMoverRobot extends BoolBot {
 		
 	}
 	
+	//Function that moves a given number of spaces.
+	public void mvT(int amount) {
+		
+		for (int i = amount; i > 0; i--) {
+			
+			move();
+			
+		}
+		
+	}
+	
 }
