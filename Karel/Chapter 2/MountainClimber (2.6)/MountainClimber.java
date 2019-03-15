@@ -12,6 +12,7 @@ import kareltherobot.*;
 public class MountainClimber implements Directions {
 	
 	public static void task(UrRobot karel) {
+		
 		karel.move();
 		karel.turnLeft();
 		karel.move();
@@ -46,8 +47,6 @@ public class MountainClimber implements Directions {
 		karel.turnLeft();
 		karel.move();
 		karel.turnOff();
-		
-		//add your code here
 		
 	}
 	
