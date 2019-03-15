@@ -1,9 +1,11 @@
-/**
- * Write a description of class BeeperMover here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+/**			
+ *
+ * @Author:
+ * Date: 
+ * Teacher: 
+ * Lab: HBot
+ *
+**/
 
 import kareltherobot.*;
 import java.awt.Color;
@@ -12,6 +14,8 @@ public class BeeperMover implements Directions {
 	
 	public static void task(UrRobot karel) {
 		
+		//It's been several months, I can't remember what this problem was
+		//so I can't be bothered to add in comments explaining what everything does
 		karel.turnLeft();
 		karel.turnLeft();
 		karel.turnLeft();
@@ -63,4 +67,5 @@ public class BeeperMover implements Directions {
 		karel.turnLeft();
 		
 	}
+	
 }
