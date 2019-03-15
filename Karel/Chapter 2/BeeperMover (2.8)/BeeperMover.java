@@ -3,7 +3,7 @@
  * @Author:
  * Date: 
  * Teacher: 
- * Lab: HBot
+ * Lab: BeeperMover
  *
 **/
 
