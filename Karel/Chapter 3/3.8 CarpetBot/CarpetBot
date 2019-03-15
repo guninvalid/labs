@@ -1,0 +1,49 @@
+/**			
+ * 
+ * @Author:
+ * Date: 
+ * Teacher: 
+ * Lab: NasaBot
+ * 
+**/
+
+import kareltherobot.*;
+
+public class CarpetBot extends BetterTurnerRobot {
+	
+	public CarpetBot(int st, int ave, Direction dir, int beeps) {
+		
+		super (st,ave, dir, beeps);
+		
+	}
+	
+	public void carpet() {
+		
+		putCarpetQuarter();
+		putCarpetQuarter();
+		putCarpetQuarter();
+		putCarpetQuarter();
+		
+	}
+	
+	public void putCarpetQuarter() {
+		
+		mvNPut();
+		mvNPut();
+		mvNPut();
+		mvNPut();
+		mvNPut();
+		mvNPut();
+		mvNPut();
+		turnLeft();
+		
+	}
+	
+	public void mvNPut() {
+		
+		move();
+		putBeeper();
+		
+	}
+	
+}
