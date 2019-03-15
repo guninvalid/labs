@@ -12,7 +12,7 @@ import kareltherobot.*;
 public class Figure8 extends UrRobot {
 	
 	public Figure8(int s, int a, Direction dir, int beeps) {
-	
+		
 		super(s, a, dir, beeps);
 		
 	}
