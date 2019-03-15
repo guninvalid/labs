@@ -3,7 +3,7 @@
  * @Author:
  * Date: 
  * Teacher: 
- * Lab: PinSetter
+ * Lab: Pinsetter
  * 
 **/
 
@@ -91,7 +91,7 @@ public class PinSetter extends BetterTurnerRobot {
 		
 	}
 	
-		public void setPinRight() {
+	public void setPinRight() {
 		
 		turnRight();
 		move();
