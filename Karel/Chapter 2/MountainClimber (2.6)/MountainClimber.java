@@ -16,36 +16,30 @@ public class MountainClimber implements Directions {
 		karel.turnLeft();
 		karel.move();
 		karel.move();
-		karel.turnLeft(); //5
+		karel.turnLeft();
 		karel.turnLeft();
 		karel.turnLeft();
 		karel.move();
 		karel.putBeeper();
-		karel.turnLeft(); //10
+		karel.turnLeft();
 		karel.move();
 		karel.move();
 		karel.turnLeft();
 		karel.turnLeft();
 		karel.turnLeft();
-		karel.move(); //15
+		karel.move();
 		karel.putBeeper();
 		karel.move();
 		karel.turnLeft();
 		karel.turnLeft();
-		karel.turnLeft(); //20
-		//karel.move();
-		//karel.turnLeft();
-		//karel.move();
-		//karel.turnLeft();
-		//karel.turnLeft(); //25
-		//karel.turnLeft();
+		karel.turnLeft();
 		karel.move();
 		karel.move();
 		karel.putBeeper();
 		karel.turnLeft();
 		karel.move();
 		karel.turnLeft();
-		karel.turnLeft(); //30
+		karel.turnLeft();
 		karel.turnLeft();
 		karel.move();
 		karel.move();
