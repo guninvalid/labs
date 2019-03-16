@@ -9,7 +9,7 @@
 
 import kareltherobot.*;
 
-public class AbstractRacerRobot extends BetterMoverRobot {
+public abstract class AbstractRacerRobot extends BetterMoverRobot {
 	
 	//Usual constructor
 	public AbstractRacerRobot(int st, int ave, Direction dir, int beeps) {
@@ -32,10 +32,6 @@ public class AbstractRacerRobot extends BetterMoverRobot {
 		
 	}
 	
-	public void raceStride() {
-		
-		move();
-		
-	}
+	public abstract void raceStride();
 	
 }
