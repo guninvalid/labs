@@ -1,8 +1,8 @@
 # labs
 
-Every AP Computer Science A lab for Mr. Reid's class for the 2018-2019 school year, as done by me. Note that you choose to use these labs entirely at YOUR OWN RISK. Also note that these will not all compile properly and are not guaranteed to work as intended. 
-
 TL;DR: Do whatever you want with this code, but don't blame me if you get caught.
+
+Every AP Computer Science A lab for Mr. Reid's class for the 2018-2019 school year, as done by me. Note that you choose to use these labs entirely at YOUR OWN RISK. Also note that these will not all compile properly and are not guaranteed to work as intended. If you would like, please submit bug reports with the testers, and I will attempt to get back to you as soon as possible.
 
 By using this code in ANY way, you accept the following agreement:
 
