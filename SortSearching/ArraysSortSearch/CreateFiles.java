@@ -1,4 +1,9 @@
- 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Note: You'll use this file to create some data files for your lab.
@@ -10,33 +15,26 @@
  * 			file size was 10.4Mb! (there are about 21 characters/bytes per record -
  * 			so 21 * 500,000 is about 10,000,000 bytes.
  */
-import chn.util.*;
-import java.text.*;
 
 public class CreateFiles {
 	
 	public static final int NUM_STUDENTS = 999;
-	public static final double DEFGPA = 0.0;
-	public static final String DEFNAME = "despacito";
-	public static final int DEFID = 0;
 	
-	public static void main(String args[]) {
+	public static void main(String args[]) throws IOException {
 		
 		createFile();
 		
 	}
 	
 	public static void createFile(int num, boolean gpaSame, double pgpa, 
-				boolean nameSame, String pname, boolean idSame, int pid) {
+				boolean nameSame, String pname, boolean idSame, int pid) throws IOException {
 		
 		String fileName = "students" + num + ".txt";
-		FileOutput out = new FileOutput(fileName);
+		PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(fileName)));
 		int id;
 		double gpa;
-		DecimalFormat fmt = new DecimalFormat("0.00");
+		String gpaString;
 		for (int i = 1; i <= num; i++) {
-			
-			id = (int) (Math.random() * 10000);
 			
 			if (idSame) {
 				
@@ -44,11 +42,7 @@ public class CreateFiles {
 				
 			} else {
 				
-				if (id < 1000) {
-					
-					id += 1000;
-					
-				}
+				id = (int) (Math.random() * 10000);
 				
 			}
 			
@@ -61,6 +55,11 @@ public class CreateFiles {
 				gpa = Math.random() * 100000;
 				
 			}
+			
+			gpaString = String.valueOf(Math.round(gpa * 100));
+			gpaString = gpaString.substring(0, gpaString.length() - 2) + "." + 
+						gpaString.substring(gpaString.length() - 2);
+			
 			String name = "";
 			
 			if (nameSame) {
@@ -69,16 +68,16 @@ public class CreateFiles {
 				
 			} else {
 				
-				for (int j =1 ; j <= 10; j++) {
+				for (int j = 1; j <= 10; j++) {
 					
 					int letDig = (int) (Math.random() * 100) % 26;
-					name += (char) (letDig+'A');
+					name += (char) (letDig + 'A');
 					
 				}
 				
 			}
 			
-			out.println(id + " " + fmt.format(gpa));
+			out.println(id + " " + gpaString);
 			out.println(name);
 			
 		}
@@ -88,21 +87,15 @@ public class CreateFiles {
 		
 	}
 	
-	public static void createFile(int n, boolean gpaSame, boolean nameSame, boolean idSame) {
+	public static void createFile(int num) throws IOException {
 		
-		createFile(n, gpaSame, 0.0, nameSame, "despacito", idSame, 0);
-		
-	}
-	
-	public static void createFile(int n) {
-		
-		createFile(n, false, 0.0, false, "despacito", false, 0);
+		createFile(num, false, 0.0, false, "despacito", false, 0);
 		
 	}
 	
-	public static void createFile() {
+	public static void createFile() throws IOException {
 		
-		createFile(NUM_STUDENTS, false, 0.0, false, "despacito", false, 0);
+		createFile(NUM_STUDENTS);
 		
 	}
 	
