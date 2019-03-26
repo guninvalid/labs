@@ -1,6 +1,6 @@
 /*
  *
- *@author: Allen Liu
+ *@author:
  *
  *note: Some of the methods below are for you to complete.
  */
