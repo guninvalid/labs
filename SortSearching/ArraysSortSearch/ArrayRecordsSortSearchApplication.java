@@ -42,8 +42,7 @@ public class ArrayRecordsSortSearchApplication {
 			
 			//Reads an option. If the option is longer than one character
 			//it will only read the first character. If the option is empty
-			//it will say that the human has not entered a choice and reset 
-			//the matrix.
+			//it will say that the user has not entered a choice and reset.
 			try {
 				
 				choice = console.readLine().charAt(0);
@@ -73,7 +72,7 @@ public class ArrayRecordsSortSearchApplication {
 						showStudents(sortedStudents);
 						break;
 						
-				//Reads a new class using human input for a different file.
+				//Reads a new class using user input for a different file.
 				case '2':
 						
 						System.out.println("Print name of file:");
@@ -96,7 +95,7 @@ public class ArrayRecordsSortSearchApplication {
 						break;
 						
 				//Sorts the current class using insertion sort as implemented
-				//by the human.
+				//by the user.
 				case '4':
 						
 						sortedStudents = p1.getStudents();
@@ -104,7 +103,7 @@ public class ArrayRecordsSortSearchApplication {
 						break;
 						
 				//Sorts the current class using selection sort as implemented
-				//by the human.
+				//by the user.
 				case '5':
 						
 						sortedStudents = p1.getStudents();
@@ -112,7 +111,7 @@ public class ArrayRecordsSortSearchApplication {
 						break;
 						
 				//Sorts the current class using merge sort as implemented by
-				//the human.
+				//the user.
 				case '6':
 						
 						sortedStudents = p1.getStudents();
@@ -125,7 +124,7 @@ public class ArrayRecordsSortSearchApplication {
 						showStudents(sortedStudents);
 						break;
 						
-				//Ends the matrix. Note that the work is not done here but in 
+				//Kills the app. Note that the work is not done here but in 
 				//the while loop from the start.
 				case '8':
 						
@@ -148,15 +147,15 @@ public class ArrayRecordsSortSearchApplication {
 		String nameOfUserOnThisMachine = System.getProperties().getProperty("user.name");
 		System.out.println("\nHello " + nameOfUserOnThisMachine + "!");
 		System.out.println();
-		System.out.println("0) Create new file using CreateFiles");
-		System.out.println("1) Show students in original order");
-		System.out.println("2) Recreate class from a different file");
-		System.out.println("3) Sort via sort in Arrays Class");
-		System.out.println("4) Sort via Insertion");
-		System.out.println("5) Sort via Selection");
-		System.out.println("6) Sort via Merge");
-		System.out.println("7) Show students in current order (sorted or otherwise)");
-		System.out.println("8) Quit?");
+		System.out.println("0- Create new file using CreateFiles");
+		System.out.println("1- Show students in original order");
+		System.out.println("2- Recreate class from a different file");
+		System.out.println("3- Sort via sort in Arrays Class");
+		System.out.println("4- Sort via Insertion");
+		System.out.println("5- Sort via Selection");
+		System.out.println("6- Sort via Merge");
+		System.out.println("7- Show students in current order (sorted or otherwise)");
+		System.out.println("8- Quit");
 		System.out.print("choice: ");
 		
 	}
