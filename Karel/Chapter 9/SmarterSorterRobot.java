@@ -41,9 +41,9 @@ public class SmarterSorterRobot extends GoHomeBot {
 		pickers = new PickerRobot[avenues];
 		beepers = new int[avenues];
 		
-		for (int i = 1; i <= avenues; i++) {
+		for (int i = 0; i < avenues; i++) {
 			
-			pickers[i] = new PickerRobot(1, i, North, 0);
+			pickers[i] = new PickerRobot(1, i + 1, North, 0);
 			
 		}
 		
