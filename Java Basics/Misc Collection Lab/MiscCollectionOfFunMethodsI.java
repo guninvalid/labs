@@ -99,16 +99,15 @@ public class MiscCollectionOfFunMethodsI {
 	public static double standardDeviation(int[] numbers) {
 		
 		double avg = average(numbers);
-		ArrayList<Double> differences = new ArrayList<Double>();
+		double[] diffs = new double[numbers.length];
 		
-		for (int num: numbers) {
+		for (int i = 0; i < numbers.length; i++) {
 			
-			double x = (double) avg - num;
-			differences.add(x * x);
+			diffs[i] = Math.pow(((double) numbers[i]) - avg, 2.0);
 			
 		}
 		
-		return (double) Math.sqrt(average(differences));
+		return (double) Math.sqrt(average(diffs));
 		//I've been told this doesn't compile without the cast even though it compiles on my end ¯\_(ツ)_/¯
 		
 	}
