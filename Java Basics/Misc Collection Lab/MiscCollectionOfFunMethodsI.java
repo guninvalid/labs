@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MiscCollectionOfFunMethodsI {  
 	
-	public static int sumDigits(Integer i) {
+	public static int sumDigits(int i) {
 		
 		int sum = 1;
 		int len = String.valueOf(Math.abs(i)).length() - 1;
@@ -29,7 +29,7 @@ public class MiscCollectionOfFunMethodsI {
 		
 	}
 	
-	public static boolean isDivisibleBy9(Integer i) {
+	public static boolean isDivisibleBy9(int i) {
 		
 		while (i > 0) {
 			
@@ -49,7 +49,8 @@ public class MiscCollectionOfFunMethodsI {
 	
 	public String toString() {
 		
-		return "You should change your tester so it says your name, Period X";
+		//Change this line to the format given
+		return "<name>, Period <period number>";
 		
 	}
 	
@@ -63,31 +64,35 @@ public class MiscCollectionOfFunMethodsI {
 			
 		}
 		
-		return sum / numbers.length;
+		return ((double) sum) / ((double) numbers.length);
 		
 	}
 	
 	public static double average(double[] numbers) {
 		
 		double sum = 0;
+		
 		for (double val: numbers) {
 			
 			sum += val;
 			
 		}
-		return sum / numbers.length;
+		
+		return sum / ((double) numbers.length);
 		
 	}
 	
 	public static double average(ArrayList<Double> numbers) {
 		
 		double sum = 0;
+		
 		for (double val: numbers) {
 			
 			sum += val;
 			
 		}
-		return sum / numbers.size();
+		
+		return sum / ((double) numbers.size());
 		
 	}
 	
@@ -103,18 +108,19 @@ public class MiscCollectionOfFunMethodsI {
 			
 		}
 		
-		return Math.sqrt(average(differences));
+		return (double) Math.sqrt(average(differences));
+		//I've been told this doesn't compile without the cast even though it compiles on my end ¯\_(ツ)_/¯
 		
 	}
 	
 	public static int[] getDigits(int num) {
 		
-		char[] charArray = String.valueOf(num).toCharArray();
-		int[] output = new int[charArray.length];
+		char[] characters = String.valueOf(num).toCharArray();
+		int[] output = new int[characters.length];
 		
-		for (int i = 0; i < charArray.length; i++) {
+		for (int i = 0; i < characters.length; i++) {
 			
-			String number = String.valueOf(charArray[i]);
+			String number = String.valueOf(characters[i]);
 			output[i] = Integer.parseInt(number);
 			
 		}
