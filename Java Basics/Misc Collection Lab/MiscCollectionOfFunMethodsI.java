@@ -6,7 +6,8 @@
  * Lab: Racers
  * 
 **/
-	
+
+import java.util.ArrayList;
 
 public class MiscCollectionOfFunMethodsI {  
 	
