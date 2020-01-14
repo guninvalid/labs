@@ -7,8 +7,6 @@
  * 
 **/
 
-import java.util.*;
-
 public class ColorMonitor {
 	
 	private Pixel[][] monitor;
