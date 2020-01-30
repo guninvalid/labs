@@ -1,195 +1,71 @@
-/**
- * 
- * Author:
- * Date: 
- * Teacher: 
- * Lab: Racers
- * 
-**/
+import java.text.DecimalFormat;
 
-import java.util.Arrays;
-
-public final class Sorter {
+public class Student implements Comparable {
 	
-	public static long sortViaJavaArraysClass(Comparable[] vec){
+	private String name;
+	private int id;
+	private double gpa;
+	
+	//default constructor
+	public Student(String pname, int pid, double pgpa){
 		
-		StopWatch timer = new StopWatch();
-		timer.start();
+		this.name = pname;
+		this.id = pid;
+		this.gpa = pgpa;
+	}
+	
+	//some accessor methods
+	public String getName() {
 		
-		Arrays.sort(vec);
-		
-		timer.stop();
-		return timer.getElapsedTime();
+		return this.name;
 		
 	}
 	
-	public static long sortViaInsertion(Comparable[] array){
+	public int getId() {
 		
-		StopWatch timer = new StopWatch();
-		timer.start();	
+		return this.id;
 		
-		for (int i = 1; i < array.length; i++) {
+	}
+	
+	public double getGpa() {
+		
+		return this.gpa;
+		
+	}
+	
+	//given
+	public String toString() {
+		
+		String s = new String("");
+		DecimalFormat fmt = new DecimalFormat("0.00");
+		s = "gpa:" + fmt.format(this.gpa) + " name:" + this.name + " id:" + this.id;
+		return s;
+		
+	}
+	
+	//compare by greater gpa first, then by lesser name
+	public int compareTo(Object pthat) {
+		
+		//compare gpa
+		Student that = (Student) pthat;
+		int comp = new Double(this.gpa).compareTo(new Double(that.gpa));
+		
+		//if gpa equal
+		if (comp == 0) {
 			
-			insert(array, i);
+			//compare name
+			return that.name.compareTo(this.name);
 			
 		}
 		
-		timer.stop();
-		return timer.getElapsedTime();
+		return comp;
 		
 	}
 	
-	public static long sortViaSelection(Comparable[] array){
+	//null check then compare using compareTo
+	public boolean equals(Object that) {
 		
-		StopWatch timer = new StopWatch();
-		timer.start();
-		
-		for (int i = 0; i < array.length - 1; i++) {
-			
-			swap(array, i, indexOfSmallest(array, i));
-			
-		}
-		
-		timer.stop();
-		return timer.getElapsedTime();
-	
-	}
-	
-	public static long sortViaMerge(Comparable[] array){
-		
-		StopWatch timer = new StopWatch();
-		timer.start();
-		
-		mergeSort(array);
-		
-		timer.stop();
-		return timer.getElapsedTime();
-		
-	}
-	
-	public static int indexOfSmallest(Comparable[] array, int initial) {
-		
-		int index = initial;
-		Comparable min = array[initial];
-		for (int j = initial + 1; j < array.length; j++) {
-			
-			if (min.compareTo(array[j]) > 0) {
-				
-				min = array[j];
-				index = j;
-				
-			}
-			
-		}
-		return index;
-		
-	}
-	
-	public static void swap(Object[] array, int initial, int finish) {
-		
-		Object tmp = array[initial];
-		array[initial] = array[finish];
-		array[finish] = tmp;
-		
-	}
-	
-	public static void shiftRight(Object[] array, int initial, int finish) {
-		
-		for (int i = finish; i > initial; i--) {
-			
-			array[i] = array[i - 1];
-			
-		}
-		
-	}
-	
-	public static void insert(Comparable[] array, int insertedObj) {
-		
-		Comparable insertion = array[insertedObj];
-		int insertTo;
-		
-		for (insertTo = insertedObj; insertTo > 0; insertTo--) {
-			
-			if (insertion.compareTo(array[insertTo - 1]) > 0) {
-				
-				break;
-				
-			}
-			
-		}
-		
-		insert(array, insertTo, insertedObj, insertion);
-		
-	}
-	
-	public static void insert(Object[] array, int initial, int finish, Object inserted) {
-		
-		shiftRight(array, initial, finish);
-		array[initial] = inserted;
-		
-	}
-	
-	public static void mergeSort(Comparable[] array, int left, int right) {
-		
-		if (left >= right) {
-			
-			return;
-			
-		}
-		
-		int mid = (left + right) / 2;
-		mergeSort(array, left, mid);
-		mergeSort(array, mid + 1, right);
-		
-		merge(array, left, mid, right);
-		
-	}
-	
-	public static void merge(Comparable[] array, int left, int mid, int right) {
-		
-		int l = left;
-		int r = mid + 1;
-		int i = left;
-		Comparable[] sort = new Comparable[array.length];
-		
-		while (l <= mid && r <= right) {
-			
-			if (array[l].compareTo(array[r]) < 0) {
-				
-				sort[i++] = array[l++];
-				
-			} else {
-				
-				sort[i++] = array[r++];
-				
-			}
-			
-		}
-		
-		while (l <= mid) {
-			
-			sort[i++] = array[l++];
-			
-		}
-		
-		while (r <= right) {
-			
-			sort[i++] = array[r++];
-			
-		}
-		
-		for (int j = left; j <= right; j++) {
-			
-			array[j] = sort[j];
-			
-		}
-		
-		
-	}
-	
-	public static void mergeSort(Comparable[] array) {
-		
-		mergeSort(array, 0, array.length - 1);
+		return that != null && this.compareTo((Student) that) == 0;
 		
 	}
 	
