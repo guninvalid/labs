@@ -2,8 +2,11 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.ArrayList;
-import java.io.PrintStreaml;
+import java.io.PrintStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * This version uses a nested if to handle default responses.
@@ -15,6 +18,7 @@ public class Magpie2 {
 	private BufferedReader in;
 	private PrintStream out;
 	private List<StringParser.MemoryToken> memList;
+	private static double log2 = Math.log(2.0);
 	
 	public Magpie2() {
 		
@@ -81,23 +85,12 @@ public class Magpie2 {
 			
 		}
 		
-		// if (in.isBlank()) {
+		if (StringParser.GAME.equals(in)) {
 			
-		// 	return QnA.getRandomEmpty();
+			playGame();
+			return "The game is done";
 			
-		// }
-		
-		// for (QnA qna: QnA.values()) {
-			
-		// 	if (qna.checkFor(in)) {
-				
-		// 		return qna.getRandomResponse();
-				
-		// 	}
-			
-		// }
-		
-		// return QnA.DEFAULTS[(int) (QnA.DEFAULTS.length * Math.random())];
+		}
 		
 		return "Idk man";
 		
@@ -161,6 +154,13 @@ public class Magpie2 {
 		
 	}
 	
+	private String print(String in) {
+		
+		out.print(in);
+		return in;
+		
+	}
+	
 	private String println(String in) {
 		
 		out.println(in);
@@ -183,6 +183,42 @@ public class Magpie2 {
 		
 	}
 	
+	private void playGame() {
+		
+		print("lower bound: ");
+		int l = Integer.parseInt(readLine());
+		print("higher bound: ");
+		int h = Integer.parseInt(readLine());
+		Integer rand = new Integer((int) Math.round((Math.random() * (double) (h - l + 1))) + l);
+		
+		for (int i = (int) Math.ceil(Math.log((double) (h - l)) / log2)  + 1; 0 < i; i--) {
+			
+			println("guess: ");
+			int comparison = rand.compareTo(new Integer(Integer.parseInt(readLine())));
+			
+			if (comparison < 0) {
+				
+				println("too small! ");
+				
+			}
+			
+			if (comparison == 0) {
+				
+				println("you did it ");
+				return;
+				
+			}
+			
+			if (0 < comparison) {
+				
+				println("too large! ");
+				
+			}
+			
+		}
+		
+	}
+	
 	private static class StringParser {
 		
 		private String string;
@@ -191,6 +227,7 @@ public class Magpie2 {
 		public static final StringParser REMEMBER = new StringParser("remember");
 		public static final StringParser RECALL = new StringParser("recall");
 		public static final StringParser DELETE = new StringParser("delete");
+		public static final StringParser GAME = new StringParser("game");
 		
 		public StringParser(String pstring) {
 			
@@ -336,7 +373,9 @@ public class Magpie2 {
 				"questions",
 				"me",
 				
-		}, "No, I am not interested in humans.", "and");
+		}, "No, I am not interested in humans.", "and"),
+		
+		;
 		
 		public final StringParser[] checks;
 		public final String[] responses;
@@ -349,6 +388,7 @@ public class Magpie2 {
 				"You don't say."
 				
 		};
+		
 		public static final String[] DEFAULTGREETINGS = new String[] {
 			
 			"Hello, let's talk."
@@ -377,7 +417,7 @@ public class Magpie2 {
 		}
 		
 		QnA(String[] pchecks, String presponses, String pcheckType) {
-
+			
 			checks = new StringParser[pchecks.length];
 			
 			for (int i = pchecks.length - 1; i >= 0; i--) {
@@ -411,25 +451,6 @@ public class Magpie2 {
 			
 		}
 		
-		// public QnA checkForAny(StringParser input) {
-			
-		// 	int minIndex = input.length() + 1;
-		// 	QnA min = (QnA) null;
-		// 	for (QnA qna: this.values()) {
-				
-		// 		int loc = qna.checkFor(input);
-		// 		if (-1 < loc && loc < minIndex) {
-					
-		// 			minIndex = loc;
-		// 			min = qna;
-					
-		// 		}
-				
-		// 	}
-		// 	return min;
-			
-		// }
-		
 		public boolean checkFor(String input) {
 			
 			return checkFor(new StringParser(input));
@@ -440,29 +461,35 @@ public class Magpie2 {
 			
 			switch (checkType) {
 				
-				case "and":	for (StringParser check: this.checks) {
-								
-								if (input.indexOf(check) <= -1) {
-									
-									return false;
-									
-								}
-								
-							}
+				case "and":
+					
+					for (StringParser check: this.checks) {
+						
+						if (input.indexOf(check) <= -1) {
+							
+							return false;
+							
+						}
+						
+					}
+					
+					return true;
+					
+				
+				case "or":
+					
+					for (StringParser check: this.checks) {
+						
+						if (input.indexOf(check) > -1) {
 							
 							return true;
 							
-				case "or":	for (StringParser check: this.checks) {
-								
-								if (input.indexOf(check) > -1) {
-									
-									return true;
-									
-								}
-								
-							}
-							
-							return false;
+						}
+						
+					}
+					
+					return false;
+					
 				
 			}
 			
