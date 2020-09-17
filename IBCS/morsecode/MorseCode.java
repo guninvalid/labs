@@ -1,4 +1,4 @@
-//This is as of now untested
+//This scored a 100
 
 //package morsecode;
 
@@ -131,6 +131,12 @@ public class MorseCode {
 	}
 	
 	public static String decode(String morse) {
+		
+		if (morse.length() == 0) {
+			
+			return "";
+			
+		}
 		
 		int index = morse.indexOf(" ");
 		String out = "";
