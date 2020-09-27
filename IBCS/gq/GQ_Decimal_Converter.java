@@ -30,7 +30,7 @@ public class GQ_Decimal_Converter {
 					
 				default:
 					
-					throw new RuntimeException("What is a " + String.valueOf(str.charAt(i)));
+					throw new RuntimeException("WTF is a " + String.valueOf(str.charAt(i)));
 					
 				
 			}
@@ -45,17 +45,8 @@ public class GQ_Decimal_Converter {
 	
 	public static String toGQ(int num) {
 		
-		int len = 0;
-		int max = Math.abs(num);
+		int len = (int) (Math.log1p(Math.abs(num)) / Math.log(3.0)) + 2;	
 		String out = "";
-		
-		while (Math.pow(3.0, (double) len) <= max) {
-			
-			len++;
-			
-		}
-		
-		len++;
 		
 		for (int i = 0; i < len; i++) {
 			
@@ -90,7 +81,7 @@ public class GQ_Decimal_Converter {
 					
 				default:
 					
-					throw new RuntimeException("What is a " + String.valueOf(num % 3));
+					throw new RuntimeException("Wtf is a " + String.valueOf(num % 3));
 					
 				
 			}
