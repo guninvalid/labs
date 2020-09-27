@@ -1,4 +1,4 @@
-package gq;
+//package gq;
 
 import static gq.GQ_Decimal_Converter.toDecimal; //If this does not compile, remove the "gq."
 import static gq.GQ_Decimal_Converter.toGQ; //If this does not compile, remove the "gq."
