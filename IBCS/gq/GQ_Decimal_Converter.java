@@ -1,4 +1,4 @@
-package gq;
+//package gq;
 
 public class GQ_Decimal_Converter {
 	
