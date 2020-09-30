@@ -6,6 +6,6 @@ Every AP Computer Science A lab for Mr. Reid's class for the 2018-2019 school ye
 
 By reproducing using this code, you accept the following agreement:
 
-This code is published with no license but is free for anyone to use in part or in whole, modified or otherwise, with or without attribution, noncommercially or commercially. Anyone may create pull requests or forks of this code. In other words, do whatever the fuck you want with this.
+This code is published with no license but is free for anyone to use in part or in whole, modified or as is, with or without attribution, noncommercially or commercially. Anyone may create pull requests or forks of this code. In other words, do whatever the fuck you want with this.
 
 I accept absolutely no responsibility for any consequences of use of this code. If your teacher finds out you've copied this code, that's on you. Use of this code is entirely at your own risk. 
