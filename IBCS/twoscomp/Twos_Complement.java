@@ -70,6 +70,12 @@ public class Twos_Complement {
 	
 	public static String invert(String s) {
 		
+		if (s.charAt(0) == '1' && s.substring(1).indexOf("1") == -1) {
+			
+			return s;
+			
+		}
+		
 		return convertDecimalTo2sComplement(-1 * convertToDecimal(s), s.length());
 		
 	}
